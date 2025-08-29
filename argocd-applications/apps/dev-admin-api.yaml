@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: plannify-dev-admin-api
+  namespace: argocd
+spec:
+  project: plannify-dev-project
+  source:
+    repoURL: git@github.com:plannify-truck-driver-app/infrastructure.git
+    targetRevision: main
+    path: yaml-applications/dev-admin-api.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: plannify-dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
