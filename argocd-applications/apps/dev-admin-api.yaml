@@ -6,7 +6,7 @@ metadata:
 spec:
   project: plannify-dev-project
   source:
-    repoURL: git@github.com:plannify-truck-driver-app/infrastructure.git
+    repoURL: https://github.com/Plannify-Truck-Driver-App/infrastructure.git
     targetRevision: main
     path: yaml-applications/dev-admin-api.yaml
   destination:
