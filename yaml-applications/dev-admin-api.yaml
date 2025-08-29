@@ -83,5 +83,7 @@ spec:
                 name: plannify-dev-admin-api
                 port:
                   number: 3000
+            path: /admin
+            pathType: Prefix
   tls:
     - secretName: dev-plannify-be-tls
