@@ -16,7 +16,7 @@ metadata:
   name: argocd-plannify-applications
   namespace: argocd
 spec:
-  project: plannify-dev-project
+  project: default
   source:
     repoURL: https://github.com/Plannify-Truck-Driver-App/infrastructure.git
     targetRevision: main
