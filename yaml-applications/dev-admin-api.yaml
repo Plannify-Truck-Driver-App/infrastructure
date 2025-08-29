@@ -4,6 +4,7 @@ metadata:
   labels:
     app: plannify-dev-admin-api
   name: plannify-dev-admin-api
+  namespace: plannify-dev
 spec:
   replicas: 1
   selector:
@@ -62,6 +63,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: plannify-dev-admin-api
+  namespace: plannify-dev
 spec:
   ports:
     - name: http
@@ -73,17 +75,24 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: plannify-dev-admin-api
+  namespace: plannify-dev
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
 spec:
+  ingressClassName: traefik
   rules:
     - host: api.dev.plannify.be
       http:
         paths:
-          - backend:
+          - path: /admin
+            pathType: Prefix
+            backend:
               service:
                 name: plannify-dev-admin-api
                 port:
                   number: 3000
-            path: /admin
-            pathType: Prefix
   tls:
-    - secretName: dev-plannify-be-tls
+    - hosts:
+        - api.dev.plannify.be
+      secretName: dev-plannify-be-tls
