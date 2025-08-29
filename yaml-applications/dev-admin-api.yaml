@@ -28,7 +28,7 @@ spec:
               memory: "24Mi"
           ports:
             - containerPort: 3000
-              name: web
+              protocol: TCP
           env:
             - name: RUST_LOG
               value: DEBUG
