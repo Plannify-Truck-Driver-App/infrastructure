@@ -65,11 +65,14 @@ metadata:
   name: plannify-dev-admin-api
   namespace: plannify-dev
 spec:
-  ports:
-    - name: http
-      port: 3000
+  type: ClusterIP
   selector:
     app: plannify-dev-admin-api
+  ports:
+    - port: 3000
+      targetPort: 3000
+      protocol: TCP
+      name: http
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
