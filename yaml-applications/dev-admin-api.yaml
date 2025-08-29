@@ -33,22 +33,22 @@ spec:
               value: DEBUG
             - name: JWT_SECRET
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   name: plannify-dev-admin-api
                   key: JWT_SECRET
             - name: ACCESS_TOKEN_DURATION_MINUTES
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   name: plannify-dev-admin-api
                   key: ACCESS_TOKEN_DURATION_MINUTES
             - name: REFRESH_TOKEN_DURATION_MINUTES
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   name: plannify-dev-admin-api
                   key: REFRESH_TOKEN_DURATION_MINUTES
             - name: DATABASE_URL
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   name: plannify-dev-admin-api
                   key: DATABASE_URL
       dnsPolicy: ClusterFirst
