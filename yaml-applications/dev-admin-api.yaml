@@ -69,7 +69,7 @@ spec:
   selector:
     app: plannify-dev-admin-api
   ports:
-    - port: 3000
+    - port: 80
       targetPort: 3000
       protocol: TCP
       name: http
@@ -82,8 +82,6 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
-    traefik.ingress.kubernetes.io/router.tls: "true"
-    traefik.ingress.kubernetes.io/rewrite-target: /
     acme.cert-manager.io/http01-edit-in-place: "true"
 spec:
   ingressClassName: traefik
@@ -97,7 +95,7 @@ spec:
               service:
                 name: plannify-dev-admin-api
                 port:
-                  number: 3000
+                  number: 80
   tls:
     - hosts:
         - api.dev.plannify.be
