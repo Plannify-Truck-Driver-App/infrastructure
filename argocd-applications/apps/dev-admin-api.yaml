@@ -9,7 +9,7 @@ spec:
     repoURL: https://github.com/Plannify-Truck-Driver-App/infrastructure.git
     targetRevision: main
     path: yaml-applications/
-    yaml: dev-admin-api.yaml
+    file: dev-admin-api.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: plannify-dev
