@@ -17,7 +17,7 @@ spec:
         app: plannify-dev-admin-api
     spec:
       containers:
-        - image: ghcr.io/plannify-truck-driver-app/admin-api:0.0.1-dev.32
+        - image: ghcr.io/plannify-truck-driver-app/admin-api:0.0.1-dev.34
           name: plannify-dev-admin-api
           imagePullPolicy: Always
           resources:
@@ -83,14 +83,15 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-plannify-dev
     traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
-    traefik.ingress.kubernetes.io/rewrite-target: /$1
+    traefik.ingress.kubernetes.io/rewrite-target: /
+    acme.cert-manager.io/http01-edit-in-place: "true"
 spec:
   ingressClassName: traefik
   rules:
     - host: api-dev.plannify.be
       http:
         paths:
-          - path: /admin/(.*)
+          - path: /admin
             pathType: Prefix
             backend:
               service:
