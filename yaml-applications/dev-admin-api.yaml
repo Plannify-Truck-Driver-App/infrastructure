@@ -75,6 +75,16 @@ spec:
       protocol: TCP
       name: http
 ---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: plannify-dev-admin-api-strip
+  namespace: plannify-dev
+spec:
+  stripPrefix:
+    prefixes:
+      - /admin
+---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -83,7 +93,7 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-plannify-dev
     traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
-    traefik.ingress.kubernetes.io/rewrite-target: /
+    traefik.ingress.kubernetes.io/router.middlewares: plannify-dev-admin-api-strip@kubernetescrd
     acme.cert-manager.io/http01-edit-in-place: "true"
 spec:
   ingressClassName: traefik
