@@ -100,4 +100,4 @@ spec:
   tls:
     - hosts:
         - api-dev.plannify.be
-      secretName: dev-plannify-be-tls
+      secretName: dev-api-plannify-be-tls
