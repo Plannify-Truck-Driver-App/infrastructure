@@ -87,7 +87,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-    - host: api.dev.plannify.be
+    - host: api-dev.plannify.be
       http:
         paths:
           - path: /admin
@@ -99,5 +99,5 @@ spec:
                   number: 80
   tls:
     - hosts:
-        - api.dev.plannify.be
+        - api-dev.plannify.be
       secretName: dev-plannify-be-tls
