@@ -89,7 +89,7 @@ spec:
     - host: api-dev.plannify.be
       http:
         paths:
-          - path: /admin
+          - path: /
             pathType: Prefix
             backend:
               service:
