@@ -82,7 +82,6 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-plannify-dev
     traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
-    traefik.ingress.kubernetes.io/router.tls: "true"
     traefik.ingress.kubernetes.io/rewrite-target: /
     acme.cert-manager.io/http01-edit-in-place: "true"
 spec:

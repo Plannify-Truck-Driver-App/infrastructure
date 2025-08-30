@@ -9,6 +9,9 @@ spec:
     privateKeySecretRef:
       name: letsencrypt-plannify-dev
     solvers:
-    - http01:
-        ingress:
-          class: traefik
+      - dns01:
+          cloudflare:
+            email: contact@plannify.be
+            apiTokenSecretRef:
+              name: cloudflare-api-token-secret
+              key: api-token
