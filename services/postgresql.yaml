@@ -20,11 +20,11 @@ spec:
             - containerPort: 5432
           resources:
             requests:
-              cpu: "1m"
-              memory: "64Mi"
+              cpu: "8m"
+              memory: "16Mi"
             limits:
-              cpu: "10m"
-              memory: "128Mi"
+              cpu: "16m"
+              memory: "32Mi"
           env:
             - name: POSTGRES_DB
               valueFrom:

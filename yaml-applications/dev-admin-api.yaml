@@ -21,10 +21,10 @@ spec:
           imagePullPolicy: Always
           resources:
             requests:
-              cpu: "1m"
+              cpu: "4m"
               memory: "8Mi"
             limits:
-              cpu: "10m"
+              cpu: "16m"
               memory: "24Mi"
           ports:
             - containerPort: 3000
@@ -82,6 +82,8 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+    traefik.ingress.kubernetes.io/rewrite-target: /
     acme.cert-manager.io/http01-edit-in-place: "true"
 spec:
   ingressClassName: traefik

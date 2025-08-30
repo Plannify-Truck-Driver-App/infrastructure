@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: plannify-dev-admin-api
+  namespace: plannify-dev
+type: Opaque
+stringData:
+  JWT_SECRET: ""
+  ACCESS_TOKEN_DURATION_MINUTES: ""
+  REFRESH_TOKEN_DURATION_MINUTES: ""
+
+  DATABASE_URL: "postgresql://user:password@host:5432/db"
