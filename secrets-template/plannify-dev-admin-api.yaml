@@ -10,3 +10,5 @@ stringData:
   REFRESH_TOKEN_DURATION_MINUTES: ""
 
   DATABASE_URL: "postgresql://user:password@host:5432/db"
+
+  REDIS_URL: "redis://plannify-redis:6379"

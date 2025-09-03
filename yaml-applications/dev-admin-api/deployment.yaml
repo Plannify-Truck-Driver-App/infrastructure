@@ -53,6 +53,11 @@ spec:
                 secretKeyRef:
                   name: plannify-dev-admin-api
                   key: DATABASE_URL
+            - name: REDIS_URL
+              valueFrom:
+                secretKeyRef:
+                  name: plannify-dev-admin-api
+                  key: REDIS_URL
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
