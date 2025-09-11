@@ -28,7 +28,7 @@ spec:
               cpu: "8m"
               memory: "16Mi"
           ports:
-            - containerPort: 8080
+            - containerPort: 4173
               protocol: TCP
       dnsPolicy: ClusterFirst
       restartPolicy: Always
@@ -48,7 +48,7 @@ spec:
     app: plannify-web-admin-app
   ports:
     - port: 80
-      targetPort: 8080
+      targetPort: 4173
       protocol: TCP
       name: http
 ---
