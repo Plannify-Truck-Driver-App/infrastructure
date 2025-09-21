@@ -22,7 +22,7 @@ spec:
         app: plannify-web-admin-app
     spec:
       containers:
-        - image: ghcr.io/plannify-truck-driver-app/web-admin-app:0.0.1-dev.66
+        - image: ghcr.io/plannify-truck-driver-app/web-admin-app:0.0.1-dev.67
           name: plannify-web-admin-app
           imagePullPolicy: Always
           resources:
