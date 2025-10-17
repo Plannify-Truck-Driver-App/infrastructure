@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: plannify-postgresql
+  name: plannify-dev-postgresql
   namespace: plannify-dev
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: plannify-postgresql
+      app: plannify-dev-postgresql
   template:
     metadata:
       labels:
-        app: plannify-postgresql
+        app: plannify-dev-postgresql
     spec:
       containers:
         - image: postgres:17
-          name: plannify-postgresql
+          name: plannify-dev-postgresql
           ports:
             - containerPort: 5432
           resources:
@@ -42,24 +42,24 @@ spec:
                   name: plannify-dev-postgresql
                   key: POSTGRES_PASSWORD
             - name: PGDATA
-              value: /var/lib/postgresql/data
+              value: /var/lib/postgresql/data/pgdata
           volumeMounts:
             - name: postgres-pv
               mountPath: /var/lib/postgresql/data
       volumes:
         - name: postgres-pv
           persistentVolumeClaim:
-            claimName: plannify-postgresql-pvc
+            claimName: plannify-dev-postgresql-pvc
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: plannify-postgresql
+  name: plannify-dev-postgresql
   namespace: plannify-dev
 spec:
   type: ClusterIP
   selector:
-    app: plannify-postgresql
+    app: plannify-dev-postgresql
   ports:
     - port: 5432
       targetPort: 5432
@@ -69,9 +69,10 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: plannify-postgresql-pvc
+  name: plannify-dev-postgresql-pvc
   namespace: plannify-dev
 spec:
+  storageClassName: longhorn
   accessModes:
     - ReadWriteOnce
   resources:
