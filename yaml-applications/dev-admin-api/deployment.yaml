@@ -22,7 +22,7 @@ spec:
         app: plannify-dev-admin-api
     spec:
       containers:
-        - image: ghcr.io/plannify-truck-driver-app/admin-api:0.0.1-dev.82
+        - image: ghcr.io/plannify-truck-driver-app/admin-api:0.0.1-dev.83
           name: plannify-dev-admin-api
           imagePullPolicy: Always
           resources:
