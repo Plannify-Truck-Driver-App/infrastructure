@@ -72,7 +72,7 @@ metadata:
   name: plannify-dev-postgresql-pvc
   namespace: plannify-dev
 spec:
-  storageClassName: longhorn
+  storageClassName: local-path
   accessModes:
     - ReadWriteOnce
   resources:
