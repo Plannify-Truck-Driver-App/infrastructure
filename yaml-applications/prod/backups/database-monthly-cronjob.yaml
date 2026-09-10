@@ -44,7 +44,7 @@ spec:
                 - name: BACKUP_DIR
                   value: "postgresql-database/monthly"
                 - name: BACKUP_MAX_BEFORE_DELETE
-                  value: "12"
+                  value: "3"
                 - name: BACKUP_COMPRESSION
                   value: "xz"
                 - name: BACKUP_AGE_RECIPIENT
